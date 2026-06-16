@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Play } from 'lucide-react'
+import { Play, ExternalLink } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { cn } from '@/lib/utils'
 
@@ -10,6 +10,7 @@ type Project = {
   category: string
   tag: string
   image: string
+  videoUrl: string
 }
 
 const projects: Project[] = [
@@ -18,36 +19,42 @@ const projects: Project[] = [
     category: 'Commercial',
     tag: '60s Spot',
     image: '/portfolio/commercial.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
   {
     title: 'Midnight Echo',
     category: 'Music Video',
     tag: 'Official Video',
     image: '/portfolio/music-video.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
   {
     title: 'The Long Road',
     category: 'Documentary',
     tag: 'Short Doc',
     image: '/portfolio/documentary.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
   {
     title: 'Ever After',
     category: 'Wedding',
     tag: 'Highlight Film',
     image: '/portfolio/wedding.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
   {
     title: 'Fracture',
     category: 'Short Film',
     tag: 'Drama',
     image: '/portfolio/short-film.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
   {
     title: 'City Pulse',
     category: 'Social',
     tag: 'Reels Series',
     image: '/portfolio/social.png',
+    videoUrl: 'https://youtu.be/dQw4w9WgXcQ',
   },
 ]
 
@@ -79,7 +86,8 @@ export function Portfolio() {
         </h2>
         <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
           A glimpse into recent projects across commercials, music videos, and
-          films. Each one crafted to leave an impression.
+          films. Each one crafted to leave an impression. Click any project to
+          view the video.
         </p>
       </Reveal>
 
@@ -106,7 +114,12 @@ export function Portfolio() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((project, i) => (
           <Reveal key={project.title} delay={i * 80}>
-            <article className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
+            <a
+              href={project.videoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:border-primary"
+            >
               <img
                 src={project.image || '/placeholder.svg'}
                 alt={`${project.title} — ${project.category}`}
@@ -127,10 +140,10 @@ export function Portfolio() {
                   </span>
                 </div>
                 <span className="flex size-12 shrink-0 scale-90 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-                  <Play className="size-5 fill-current" />
+                  <ExternalLink className="size-5" />
                 </span>
               </div>
-            </article>
+            </a>
           </Reveal>
         ))}
       </div>

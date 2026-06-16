@@ -1,6 +1,42 @@
 # Portfolio Customization Guide
 
-This is a static portfolio site ready for GitHub hosting. Here's how to customize it with your own links and information.
+This is a static portfolio site ready for GitHub hosting. Here's how to customize it with your own links, information, and images.
+
+## Customizing Images
+
+All portfolio and hero images are stored in `/public/` directory. Replace them with your own:
+
+### Portfolio Images
+Located in `/public/portfolio/`:
+- `commercial.png` - Commercial/advertising project thumbnail
+- `music-video.png` - Music video project thumbnail
+- `documentary.png` - Documentary project thumbnail
+- `wedding.png` - Wedding project thumbnail
+- `short-film.png` - Short film project thumbnail
+- `social.png` - Social media content thumbnail
+
+**How to replace:**
+1. Create your own thumbnail images (aspect ratio 4:3 recommended, min 600x450px)
+2. Save as PNG files
+3. Replace the files in `/public/portfolio/` with the same names
+4. The site will automatically use your new images
+
+### Hero Section Image
+Located in `/public/`:
+- `editor-portrait.png` - Your profile/editor portrait for the About section
+
+**How to replace:**
+1. Take a portrait photo or screenshot
+2. Save as PNG file
+3. Replace `/public/editor-portrait.png` with your image
+4. Recommended size: 600x600px or similar square aspect ratio
+
+### Tips for Best Results
+- Keep all images in PNG format for consistency
+- Use high-quality images (at least 600px width minimum)
+- Portfolio thumbnails should be 4:3 aspect ratio
+- Keep file sizes under 500KB for fast loading
+- Use descriptive alt text in filenames for SEO
 
 ## Updating Social Links
 
@@ -88,7 +124,13 @@ Your site will be live at: `https://your-username.github.io/your-repo-name/`
 │   ├── site-footer.tsx
 │   └── reveal.tsx
 └── public/
-    ├── portfolio/        # Portfolio images
+    ├── portfolio/        # Portfolio images (6 thumbnail images)
+    │   ├── commercial.png
+    │   ├── music-video.png
+    │   ├── documentary.png
+    │   ├── wedding.png
+    │   ├── short-film.png
+    │   └── social.png
     └── editor-portrait.png
 ```
 
@@ -100,3 +142,4 @@ Your site will be live at: `https://your-username.github.io/your-repo-name/`
 ✅ Fully static - no backend required  
 ✅ Mobile responsive  
 ✅ Fast loading  
+✅ Easily customizable images and links
